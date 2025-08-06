@@ -75,7 +75,7 @@ export default function Ajuda() {
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2">Como funcionam as validações em tempo real?</h3>
                 <p className="text-gray-600">
-                  Nossa aplicação analisa continuamente o conteúdo que você digita, identificando elementos 
+                  O CurrículoX analisa continuamente o conteúdo que você digita, identificando elementos 
                   que podem causar problemas com sistemas ATS, como emojis, símbolos especiais, 
                   formatação inadequada e ausência de informações importantes.
                 </p>
@@ -149,7 +149,7 @@ export default function Ajuda() {
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">1. Criar Novo Currículo</h4>
                   <p className="text-gray-600 text-sm">
-                    Use nosso editor para criar um currículo do zero com validação ATS em tempo real.
+                    Use o editor do CurrículoX para criar um currículo do zero com validação ATS em tempo real.
                   </p>
                 </div>
                 <div>
@@ -168,6 +168,18 @@ export default function Ajuda() {
                   <h4 className="font-semibold text-gray-900 mb-2">4. Exportar DOCX</h4>
                   <p className="text-gray-600 text-sm">
                     Baixe seu currículo em formato DOCX otimizado para máxima compatibilidade.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">5. Gerenciar Histórico</h4>
+                  <p className="text-gray-600 text-sm">
+                    Acesse e gerencie todas as versões dos seus currículos no histórico.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">6. Sugestões Inteligentes</h4>
+                  <p className="text-gray-600 text-sm">
+                    Receba sugestões de palavras-chave e melhorias baseadas na sua área profissional.
                   </p>
                 </div>
               </div>
