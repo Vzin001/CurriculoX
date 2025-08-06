@@ -1,14 +1,51 @@
 {
+  "name": "curriculo-x",
+  "version": "1.0.0",
+  "description": "Aplicação multiplataforma para criação de currículos compatíveis com sistemas ATS",
+  "main": "src/app/page.tsx",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "electron:dev": "electron .",
+    "electron:build": "electron-builder"
+  },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
     "@types/file-saver": "^2.0.7",
     "clsx": "^2.1.1",
     "docx": "^9.5.1",
+    "electron": "^32.2.6",
     "file-saver": "^2.0.5",
     "firebase": "^12.0.0",
     "lucide-react": "^0.536.0",
+    "next": "^15.1.6",
     "react-hook-form": "^7.62.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.2",
     "zod": "^4.0.15"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "electron-builder": "^25.1.8",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "^15.1.6"
+  },
+  "build": {
+    "appId": "com.curriculox.app",
+    "productName": "CurrículoX",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "out/**/*",
+      "node_modules/**/*"
+    ]
   }
 }

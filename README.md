@@ -1,6 +1,6 @@
-# Currículo ATS Pro
+# CurrículoX
 
-Aplicação multiplataforma para criação de currículos compatíveis com sistemas ATS (Applicant Tracking Systems). Desenvolvida com Next.js, oferece validação automática, alertas inteligentes e exportação otimizada em formato DOCX.
+Aplicação multiplataforma para criação de currículos compatíveis com sistemas ATS (robôs de recrutamento). Geração em .DOCX, validação automática, alertas inteligentes e exportação com 100% de compatibilidade.
 
 ## 🚀 Funcionalidades
 
@@ -11,36 +11,45 @@ Aplicação multiplataforma para criação de currículos compatíveis com siste
 - **Exportação DOCX**: Geração automática em formato otimizado para sistemas ATS
 - **Alertas Inteligentes**: Detecção automática de elementos problemáticos
 - **Interface Limpa**: Design minimalista focado na funcionalidade
+- **Histórico de Versões**: Gerencie múltiplas versões dos seus currículos
+- **Modo Preto & Branco**: Layout básico para máxima legibilidade ATS
 
 ### 🎯 Validações ATS
 - Detecção de emojis e símbolos especiais
 - Verificação de formatação inadequada
 - Análise de estrutura do conteúdo
 - Validação de campos obrigatórios
-- Sugestões de palavras-chave
+- Sugestões de palavras-chave por área
 
 ### 📄 Exportação Otimizada
 - Formato DOCX com máxima compatibilidade
-- Fontes padrão (Arial, Calibri)
+- Fontes padrão (Arial, Calibri, 11pt)
 - Layout sem colunas ou elementos gráficos
 - Nomenclatura automática: `Curriculo_[Nome]_[Ano].docx`
+- Apenas caracteres ASCII padrão
+
+### 🖥️ Multiplataforma
+- **Web**: Acesso via navegador com sincronização na nuvem
+- **Desktop**: Aplicação Electron com cache offline
+- **Mobile**: Interface responsiva para dispositivos móveis
 
 ## 🛠️ Tecnologias
 
-- **Frontend**: Next.js 14 + TypeScript
+- **Frontend**: Next.js 14 + TypeScript + React
+- **Desktop**: Electron.js com sincronização
+- **Backend**: Firebase (Auth + Firestore)
 - **Styling**: Tailwind CSS
 - **Componentes**: Componentes customizados com Radix UI
 - **Exportação**: docx.js para geração de documentos
 - **Validação**: Zod + React Hook Form
 - **Ícones**: Lucide React
-- **Backend**: Firebase (Auth + Firestore) - Configuração opcional
 
 ## 📦 Instalação
 
 1. Clone o repositório:
 ```bash
 git clone [repository-url]
-cd curriculo-ats-pro
+cd curriculo-x
 ```
 
 2. Instale as dependências:
@@ -48,7 +57,7 @@ cd curriculo-ats-pro
 npm install
 ```
 
-3. Configure as variáveis de ambiente (opcional):
+3. Configure as variáveis de ambiente:
 ```bash
 cp .env.local.example .env.local
 # Edite .env.local com suas configurações do Firebase
@@ -68,22 +77,27 @@ src/
 ├── app/                    # App Router (Next.js 14)
 │   ├── criar/             # Página de criação de currículo
 │   ├── validador/         # Página de validação ATS
+│   ├── exportar/          # Página de exportação
+│   ├── historico/         # Histórico de currículos
+│   ├── perfil/            # Perfil do usuário
 │   ├── ajuda/             # Central de ajuda e FAQ
 │   └── page.tsx           # Página inicial
 ├── components/            # Componentes reutilizáveis
 │   ├── ui/                # Componentes base da UI
 │   ├── ATSScoreBar.tsx    # Barra de pontuação ATS
 │   ├── LiveValidationAlerts.tsx # Alertas em tempo real
-│   └── ExportButton.tsx   # Botão de exportação
+│   ├── ExportButton.tsx   # Botão de exportação
+│   └── ModalSugestoes.tsx # Modal de sugestões
 ├── lib/                   # Utilitários e configurações
 │   ├── utils.ts           # Funções utilitárias
 │   ├── firebase.ts        # Configuração Firebase
-│   └── docx-generator.ts  # Gerador de documentos DOCX
+│   ├── docx-generator.ts  # Gerador de documentos DOCX
+│   └── keywords.ts        # Base de palavras-chave
 └── types/                 # Definições de tipos TypeScript
     └── curriculum.ts      # Tipos do currículo
 ```
 
-## 🔧 Configuração Firebase (Opcional)
+## 🔧 Configuração Firebase
 
 Para habilitar sincronização na nuvem e autenticação:
 
@@ -107,42 +121,73 @@ Para habilitar sincronização na nuvem e autenticação:
 - Sugestões personalizadas de melhoria
 - Score detalhado com explicações
 
+### Exportação (`/exportar`)
+- Preview do currículo antes da exportação
+- Botão de exportação DOCX otimizado
+- Nomenclatura automática de arquivos
+
+### Histórico (`/historico`)
+- Lista de currículos salvos
+- Controle de versões
+- Opções de edição e duplicação
+
+### Perfil (`/perfil`)
+- Dados do usuário
+- Preferências de exportação
+- Configurações de conta
+
 ### Central de Ajuda (`/ajuda`)
 - FAQ completo sobre sistemas ATS
-- Dicas de otimização
+- Dicas de otimização por área
 - Guia de uso da aplicação
 - Informações de contato
 
 ## 🎯 Critérios ATS
 
 ### ✅ Elementos Recomendados
-- Fontes padrão (Arial, Calibri, Times New Roman)
+- Fontes padrão (Arial, Calibri, Times New Roman, 11pt)
 - Layout de coluna única
 - Títulos de seção claros
 - Bullet points simples
 - Formato DOCX
-- Palavras-chave relevantes
+- Palavras-chave relevantes por área
 
 ### ❌ Elementos a Evitar
 - Emojis e símbolos especiais
 - Imagens e gráficos
 - Colunas múltiplas
-- Caixas de texto
+- Caixas de texto flutuantes
 - Tabelas complexas
 - Formatação excessiva
+- Cores de fundo ou texto
+
+## 🖥️ Versão Desktop (Electron)
+
+### Funcionalidades Adicionais
+- Cache offline para trabalho sem internet
+- Sincronização automática com versão web
+- Drag & drop de arquivos DOCX
+- Tema escuro para edição (não exportado)
+- Notificações de sistema
+
+### Instalação Desktop
+```bash
+npm run electron:dev    # Desenvolvimento
+npm run electron:build  # Build para produção
+```
 
 ## 🚀 Deploy
 
-### Vercel (Recomendado)
+### Vercel (Web)
 ```bash
 npm run build
 # Deploy automático via GitHub integration
 ```
 
-### Outros Provedores
+### Electron (Desktop)
 ```bash
-npm run build
-npm start
+npm run electron:build
+# Gera executáveis para Windows, Mac e Linux
 ```
 
 ## 🤝 Contribuição
@@ -159,10 +204,10 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalh
 
 ## 📞 Suporte
 
-- **Email**: suporte@curriculoatspro.com
+- **Email**: suporte@curriculox.com
 - **FAQ**: Acesse `/ajuda` na aplicação
 - **Issues**: Use o sistema de issues do GitHub
 
 ---
 
-**Currículo ATS Pro** - Maximize suas chances de passar pela triagem automatizada! 🎯
+**CurrículoX** - Maximize suas chances de passar pela triagem automatizada! 🎯

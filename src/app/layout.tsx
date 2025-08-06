@@ -5,8 +5,8 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Currículo ATS Pro",
-  description: "Aplicação para criação de currículos compatíveis com sistemas ATS",
+  title: "CurrículoX",
+  description: "Aplicação multiplataforma para criação de currículos compatíveis com sistemas ATS (robôs de recrutamento). Geração em .DOCX, validação automática, alertas inteligentes e exportação com 100% de compatibilidade.",
 }
 
 export default function RootLayout({

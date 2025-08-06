@@ -122,7 +122,14 @@ export default function CriarCurriculo() {
               </Link>
               <h1 className="text-2xl font-bold text-gray-900 ml-4">Criar Currículo</h1>
             </div>
-            <ExportButton data={data} />
+            <div className="flex gap-2">
+              <Link href="/exportar">
+                <Button variant="outline" disabled={data.atsScore < 60}>
+                  Visualizar
+                </Button>
+              </Link>
+              <ExportButton data={data} />
+            </div>
           </div>
         </div>
       </header>
