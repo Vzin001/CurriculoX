@@ -3,7 +3,6 @@ export const keywordsByArea = {
   tecnologia: {
     frontend: [
       "React", "Vue.js", "Angular", "JavaScript", "TypeScript", "HTML5", "CSS3",
-      "Sass", "Less", "Bootstrap", "Tailwind CSS", "Webpack", "Vite", "Next.js",
       "Nuxt.js", "Redux", "Vuex", "Responsive Design", "PWA", "SPA"
     ],
     backend: [

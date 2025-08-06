@@ -110,17 +110,17 @@ export default function CriarCurriculo() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between py-4">
-            <div className="flex items-center">
+      <header className="header">
+        <div className="header__container">
+          <div className="header__content">
+            <div className="header__left">
               <Link href="/">
                 <Button variant="ghost" size="sm">
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Voltar
                 </Button>
               </Link>
-              <h1 className="text-2xl font-bold text-gray-900 ml-4">Criar Currículo</h1>
+              <h1 className="header__title">Criar Currículo</h1>
             </div>
             <div className="flex gap-2">
               <Link href="/exportar">
@@ -134,19 +134,19 @@ export default function CriarCurriculo() {
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid lg:grid-cols-3 gap-8">
+      <div className="main">
+        <div className="grid grid--lg-cols-3 gap-8">
           {/* Formulário Principal */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="grid--lg-span-2 space-y-6">
             {/* Cabeçalho */}
             <Card>
               <CardHeader>
                 <CardTitle>Informações Pessoais</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                <div className="form-row">
+                  <div className="form-group">
+                    <label className="label">
                       Nome Completo *
                     </label>
                     <Input
@@ -155,8 +155,8 @@ export default function CriarCurriculo() {
                       placeholder="Seu nome completo"
                     />
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <div className="form-group">
+                    <label className="label">
                       E-mail *
                     </label>
                     <Input
@@ -167,9 +167,9 @@ export default function CriarCurriculo() {
                     />
                   </div>
                 </div>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                <div className="form-row">
+                  <div className="form-group">
+                    <label className="label">
                       Telefone *
                     </label>
                     <Input
@@ -178,8 +178,8 @@ export default function CriarCurriculo() {
                       placeholder="(11) 99999-9999"
                     />
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <div className="form-group">
+                    <label className="label">
                       Cidade/Estado
                     </label>
                     <Input
@@ -189,9 +189,9 @@ export default function CriarCurriculo() {
                     />
                   </div>
                 </div>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                <div className="form-row">
+                  <div className="form-group">
+                    <label className="label">
                       LinkedIn
                     </label>
                     <Input
@@ -200,8 +200,8 @@ export default function CriarCurriculo() {
                       placeholder="linkedin.com/in/seuperfil"
                     />
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <div className="form-group">
+                    <label className="label">
                       GitHub
                     </label>
                     <Input
@@ -220,7 +220,7 @@ export default function CriarCurriculo() {
                 <CardTitle>Resumo Profissional</CardTitle>
               </CardHeader>
               <CardContent>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="label">
                   Descreva brevemente sua experiência e objetivos profissionais
                 </label>
                 <Textarea
@@ -235,7 +235,7 @@ export default function CriarCurriculo() {
             {/* Experiência Profissional */}
             <Card>
               <CardHeader>
-                <div className="flex justify-between items-center">
+                <div className="form-section__header">
                   <CardTitle>Experiência Profissional</CardTitle>
                   <Button onClick={addExperiencia} size="sm">
                     <Plus className="h-4 w-4 mr-2" />
@@ -245,9 +245,9 @@ export default function CriarCurriculo() {
               </CardHeader>
               <CardContent className="space-y-6">
                 {data.experienciasProfissionais.map((exp) => (
-                  <div key={exp.id} className="border border-gray-200 rounded-lg p-4">
-                    <div className="flex justify-between items-start mb-4">
-                      <h4 className="font-medium text-gray-900">Experiência</h4>
+                  <div key={exp.id} className="form-item">
+                    <div className="form-item__header">
+                      <h4 className="form-item__title">Experiência</h4>
                       <Button
                         onClick={() => removeExperiencia(exp.id)}
                         variant="ghost"
@@ -256,9 +256,9 @@ export default function CriarCurriculo() {
                         <Trash2 className="h-4 w-4" />
                       </Button>
                     </div>
-                    <div className="grid md:grid-cols-2 gap-4 mb-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <div className="form-row mb-4">
+                      <div className="form-group">
+                        <label className="label">
                           Empresa
                         </label>
                         <Input
@@ -267,8 +267,8 @@ export default function CriarCurriculo() {
                           placeholder="Nome da empresa"
                         />
                       </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                      <div className="form-group">
+                        <label className="label">
                           Cargo
                         </label>
                         <Input
@@ -278,8 +278,8 @@ export default function CriarCurriculo() {
                         />
                       </div>
                     </div>
-                    <div className="mb-4">
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <div className="form-group mb-4">
+                      <label className="label">
                         Período
                       </label>
                       <Input
@@ -288,8 +288,8 @@ export default function CriarCurriculo() {
                         placeholder="Ex: Janeiro 2020 - Presente"
                       />
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <div className="form-group">
+                      <label className="label">
                         Descrição das atividades
                       </label>
                       <Textarea
@@ -302,9 +302,11 @@ export default function CriarCurriculo() {
                   </div>
                 ))}
                 {data.experienciasProfissionais.length === 0 && (
-                  <p className="text-gray-500 text-center py-8">
+                  <div className="empty-state">
+                    <p className="empty-state__description">
                     Nenhuma experiência adicionada. Clique em "Adicionar" para começar.
-                  </p>
+                    </p>
+                  </div>
                 )}
               </CardContent>
             </Card>
@@ -312,7 +314,7 @@ export default function CriarCurriculo() {
             {/* Formação Acadêmica */}
             <Card>
               <CardHeader>
-                <div className="flex justify-between items-center">
+                <div className="form-section__header">
                   <CardTitle>Formação Acadêmica</CardTitle>
                   <Button onClick={addFormacao} size="sm">
                     <Plus className="h-4 w-4 mr-2" />
@@ -322,9 +324,9 @@ export default function CriarCurriculo() {
               </CardHeader>
               <CardContent className="space-y-6">
                 {data.formacaoAcademica.map((form) => (
-                  <div key={form.id} className="border border-gray-200 rounded-lg p-4">
-                    <div className="flex justify-between items-start mb-4">
-                      <h4 className="font-medium text-gray-900">Formação</h4>
+                  <div key={form.id} className="form-item">
+                    <div className="form-item__header">
+                      <h4 className="form-item__title">Formação</h4>
                       <Button
                         onClick={() => removeFormacao(form.id)}
                         variant="ghost"
@@ -333,9 +335,9 @@ export default function CriarCurriculo() {
                         <Trash2 className="h-4 w-4" />
                       </Button>
                     </div>
-                    <div className="grid md:grid-cols-2 gap-4 mb-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <div className="form-row mb-4">
+                      <div className="form-group">
+                        <label className="label">
                           Curso
                         </label>
                         <Input
@@ -344,8 +346,8 @@ export default function CriarCurriculo() {
                           placeholder="Nome do curso"
                         />
                       </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                      <div className="form-group">
+                        <label className="label">
                           Instituição
                         </label>
                         <Input
@@ -355,8 +357,8 @@ export default function CriarCurriculo() {
                         />
                       </div>
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <div className="form-group">
+                      <label className="label">
                         Conclusão
                       </label>
                       <Input
@@ -368,9 +370,11 @@ export default function CriarCurriculo() {
                   </div>
                 ))}
                 {data.formacaoAcademica.length === 0 && (
-                  <p className="text-gray-500 text-center py-8">
+                  <div className="empty-state">
+                    <p className="empty-state__description">
                     Nenhuma formação adicionada. Clique em "Adicionar" para começar.
-                  </p>
+                    </p>
+                  </div>
                 )}
               </CardContent>
             </Card>
@@ -381,7 +385,7 @@ export default function CriarCurriculo() {
                 <CardTitle>Habilidades</CardTitle>
               </CardHeader>
               <CardContent>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="label">
                   Liste suas principais habilidades (separadas por vírgula)
                 </label>
                 <Textarea
@@ -395,14 +399,14 @@ export default function CriarCurriculo() {
           </div>
 
           {/* Sidebar - Validação ATS */}
-          <div className="space-y-6">
+          <div className="sidebar">
             <Card>
               <CardHeader>
                 <CardTitle>Compatibilidade ATS</CardTitle>
               </CardHeader>
               <CardContent>
                 <ATSScoreBar score={data.atsScore} className="mb-4" />
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-secondary">
                   {data.atsScore >= 60 
                     ? "Seu currículo está pronto para exportação!" 
                     : "Complete mais campos para atingir o mínimo de 60% necessário para exportar."
@@ -426,8 +430,8 @@ export default function CriarCurriculo() {
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="text-sm">
-                  <h4 className="font-medium text-gray-900 mb-2">✅ Recomendado:</h4>
-                  <ul className="space-y-1 text-gray-600">
+                  <h4 className="font-medium text-primary mb-2">✅ Recomendado:</h4>
+                  <ul className="space-y-1 text-secondary">
                     <li>• Use fontes padrão (Arial, Calibri)</li>
                     <li>• Evite colunas e tabelas</li>
                     <li>• Inclua palavras-chave da vaga</li>
@@ -435,8 +439,8 @@ export default function CriarCurriculo() {
                   </ul>
                 </div>
                 <div className="text-sm">
-                  <h4 className="font-medium text-gray-900 mb-2">❌ Evite:</h4>
-                  <ul className="space-y-1 text-gray-600">
+                  <h4 className="font-medium text-primary mb-2">❌ Evite:</h4>
+                  <ul className="space-y-1 text-secondary">
                     <li>• Emojis e símbolos especiais</li>
                     <li>• Imagens e gráficos</li>
                     <li>• Caixas de texto</li>

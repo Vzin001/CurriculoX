@@ -38,7 +38,6 @@ Aplicação multiplataforma para criação de currículos compatíveis com siste
 - **Frontend**: Next.js 14 + TypeScript + React
 - **Desktop**: Electron.js com sincronização
 - **Backend**: Firebase (Auth + Firestore)
-- **Styling**: Tailwind CSS
 - **Componentes**: Componentes customizados com Radix UI
 - **Exportação**: docx.js para geração de documentos
 - **Validação**: Zod + React Hook Form

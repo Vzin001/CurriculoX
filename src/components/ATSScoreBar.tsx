@@ -1,15 +1,14 @@
-import { cn } from "@/lib/utils"
 
 interface ATSScoreBarProps {
   score: number
   className?: string
 }
 
-export function ATSScoreBar({ score, className }: ATSScoreBarProps) {
+export function ATSScoreBar({ score, className = "" }: ATSScoreBarProps) {
   const getScoreColor = (score: number) => {
-    if (score >= 80) return "bg-green-500"
-    if (score >= 60) return "bg-yellow-500"
-    return "bg-red-500"
+    if (score >= 80) return "ats-score-excellent"
+    if (score >= 60) return "ats-score-good"
+    return "ats-score-poor"
   }
 
   const getScoreText = (score: number) => {
@@ -19,21 +18,18 @@ export function ATSScoreBar({ score, className }: ATSScoreBarProps) {
   }
 
   return (
-    <div className={cn("w-full", className)}>
+    <div className={`w-full ${className}`}>
       <div className="flex justify-between items-center mb-2">
-        <span className="text-sm font-medium text-gray-700">
+        <span className="text-sm font-medium text-secondary">
           Compatibilidade ATS
         </span>
-        <span className="text-sm font-bold text-gray-900">
+        <span className="text-sm font-bold text-primary">
           {score}% - {getScoreText(score)}
         </span>
       </div>
-      <div className="w-full bg-gray-200 rounded-full h-3">
+      <div className="ats-score-bar">
         <div
-          className={cn(
-            "h-3 rounded-full transition-all duration-300",
-            getScoreColor(score)
-          )}
+          className={`ats-score-fill ${getScoreColor(score)}`}
           style={{ width: `${score}%` }}
         />
       </div>
